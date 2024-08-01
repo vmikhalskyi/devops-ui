@@ -1,4 +1,4 @@
-name: My Test Monorepo Project
+name: My SonarCloud
 on:
   push:
       branches:
