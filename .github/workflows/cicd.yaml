@@ -18,3 +18,4 @@ jobs:
           args: >
             -Dsonar.projectKey=vmikhalskyi_devops-ui
             -Dsonar.organization=vmikhalskyi
+            -Dsonar.qualitygate.wait=true
