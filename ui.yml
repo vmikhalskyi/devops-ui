@@ -14,4 +14,3 @@ steps:
     awsCredentials: 'aws-oidc'
     regionName: 'us-east-1'
     bucketName: 'ecs-bucket-mikhalskyi'
-    sourceFolder: angular.json
