@@ -11,6 +11,9 @@ pr:
       - main
       - release
 
+pool:
+  vmImage: 'ubuntu-latest'
+
 stages:
 - stage: Test
   displayName: 'Test'
@@ -30,7 +33,12 @@ stages:
   - job: BuildJob
     displayName: 'Build Project'
     steps:
-    - script: |
-        echo "Building project..."
-        # Insert your build commands here
+    - task: NodeTool@0
+      inputs:
+        versionSpec: '20.x'
+      displayName: 'Use Node.js 20.x'
+    - script: npm install
+      displayName: 'Install dependencies'
+    - script: npm run build 
+      displayName: 'Build Angular Project'
 
