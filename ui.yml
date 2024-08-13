@@ -23,7 +23,7 @@ stages:
 
 - stage: Build
   displayName: 'Build'
-  condition: and(succeeded(), or(eq(variables['Build.SourceBranch'], 'refs/heads/main'), eq(variables['Build.SourceBranch'], 'refs/heads/cicd')))
+  condition: and(succeeded(), eq(variables['Build.Reason'], 'IndividualCI'), or(eq(variables['Build.SourceBranch'], 'refs/heads/main'), eq(variables['Build.SourceBranch'], 'refs/heads/cicd')))
   dependsOn: Test
   jobs:
   - job: BuildJob
