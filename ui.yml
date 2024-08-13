@@ -3,11 +3,13 @@ trigger:
     include:
       - main
       - cicd
+      - release
 
 pr:
   branches:
     include:
       - main
+      - release
 
 stages:
 - stage: Test
@@ -23,7 +25,7 @@ stages:
 
 - stage: Build
   displayName: 'Build'
-  condition: and(succeeded(), eq(variables['Build.Reason'], 'IndividualCI'), or(eq(variables['Build.SourceBranch'], 'refs/heads/main'), eq(variables['Build.SourceBranch'], 'refs/heads/cicd')))
+  condition: and(succeeded(), eq(variables['Build.Reason'], 'IndividualCI'), in(variables['Build.SourceBranch'], 'refs/heads/main', 'refs/heads/cicd', 'refs/heads/release'))
   dependsOn: Test
   jobs:
   - job: BuildJob
