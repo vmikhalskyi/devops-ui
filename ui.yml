@@ -54,5 +54,5 @@ stages:
       inputs:
         pathToPublish: '$(Build.ArtifactStagingDirectory)'
         artifactName: '$(Build.BuildId).zip'
-      displayName: 'Publish artifact to release'
+      displayName: 'Publish artifact to Release'
 
