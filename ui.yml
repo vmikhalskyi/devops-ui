@@ -14,3 +14,9 @@ steps:
     awsCredentials: 'aws-oidc2'
     regionName: 'us-east-1'
     bucketName: 'ecs-bucket-mikhalskyi'
+
+- task: AWSCLI@1
+  inputs:
+    awsServiceConnection: 'aws-oidc2'
+    awsCommand: 's3 ls'
+    regionName: 'us-east-1'
