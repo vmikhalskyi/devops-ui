@@ -46,12 +46,12 @@ stages:
         rootFolderOrFile: 'dist/angular-ui/browser'
         includeRootFolder: false
         archiveType: 'zip'
-        archiveFile: '$(Build.ArtifactStagingDirectory)/angular-app.zip'
+        archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
         replaceExistingArchive: true
       displayName: 'Archive build output'
     
     - task: PublishBuildArtifacts@1
       inputs:
         pathToPublish: '$(Build.ArtifactStagingDirectory)'
-        artifactName: 'angular-app.zip'
+        artifactName: '$(Build.BuildId).zip'
 
