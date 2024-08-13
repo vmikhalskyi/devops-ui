@@ -12,7 +12,7 @@ pr:
 stages:
 - stage: Test
   displayName: 'Test'
-  condition: or(eq(variables['Build.Reason'], 'PullRequest'), eq(variables['Build.SourceBranch'], 'refs/heads/cicd'))
+  condition: eq(variables['Build.Reason'], 'PullRequest')
   jobs:
   - job: RunTests
     displayName: 'Run Tests'
