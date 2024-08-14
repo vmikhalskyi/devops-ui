@@ -23,7 +23,6 @@ stages:
     steps:
     - script: |
         echo "Running tests..."
-        # Insert your test commands here
 
 - stage: Build
   displayName: 'Build'
