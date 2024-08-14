@@ -49,17 +49,17 @@ stages:
         replaceExistingArchive: true
       displayName: 'Archive build output'
 
-- stage: Prepare
-  displayName: 'Move to Release'
-  condition: and(succeeded(), eq(variables['Build.Reason'], 'IndividualCI'), in(variables['Build.SourceBranch'], 'refs/heads/main', 'refs/heads/cicd', 'refs/heads/release'))
-  dependsOn: ["Test", "Build"]
-  jobs:
-  - job: UploadJob
-    displayName: 'Prepare Release'
-    steps: 
-    - task: PublishBuildArtifacts@1
-      inputs:
-        pathToPublish: '$(Build.ArtifactStagingDirectory)'
-        artifactName: '$(Build.BuildId).zip'
-      displayName: 'Publish artifact to Release stage'
+# - stage: Prepare
+#   displayName: 'Move to Release'
+#   condition: and(succeeded(), eq(variables['Build.Reason'], 'IndividualCI'), in(variables['Build.SourceBranch'], 'refs/heads/main', 'refs/heads/cicd', 'refs/heads/release'))
+#   dependsOn: ["Test", "Build"]
+#   jobs:
+#   - job: UploadJob
+#     displayName: 'Prepare Release'
+#     steps: 
+#     - task: PublishBuildArtifacts@1
+#       inputs:
+#         pathToPublish: '$(Build.ArtifactStagingDirectory)'
+#         artifactName: '$(Build.BuildId).zip'
+#       displayName: 'Publish artifact to Release stage'
     
