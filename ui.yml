@@ -22,7 +22,7 @@ stages:
     displayName: 'Run Tests'
     steps:
     - script: |
-        echo "Running tests..."
+        echo "Running tests.."
 
 - stage: Build
   displayName: 'Build'
