@@ -14,6 +14,8 @@ pr:
 pool:
   vmImage: 'ubuntu-latest'
 
+stages:
+
 - stage: Build
   displayName: 'Build'
   condition: and(succeeded(), eq(variables['Build.Reason'], 'IndividualCI'), in(variables['Build.SourceBranch'], 'refs/heads/main', 'refs/heads/cicd', 'refs/heads/release'))
