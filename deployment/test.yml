@@ -23,3 +23,4 @@ stages:
     steps:
     - script: |
         echo "Running tests..."
+        sleep 10
