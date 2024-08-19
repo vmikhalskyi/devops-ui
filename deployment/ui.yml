@@ -1,8 +1,18 @@
 pool:
   vmImage: 'ubuntu-latest'
 
-stages:
+resources:
+  pipelines:
+  - pipeline: aws-devops-ui-test
+    source: aws-devops-ui-test
+    trigger: 
+      branches:
+        include: 
+        - release
+        - main
+        - cicd
 
+stages:
 - stage: Build
   displayName: 'Build'
   condition: and(succeeded(), eq(variables['Build.Reason'], 'IndividualCI'), in(variables['Build.SourceBranch'], 'refs/heads/main', 'refs/heads/cicd', 'refs/heads/release'))
