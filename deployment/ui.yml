@@ -5,14 +5,14 @@ pool:
 
 resources:
   pipelines:
-  - pipeline: sample
-    source: aws-devops-ui-test
-    trigger: true
+    - pipeline: sample  # Custom reference name
+      source: aws-devops-ui-test  # The actual name of your first pipeline
+      trigger: true  # Enable triggering based on the first pipeline
       branches:
         include: 
-        - release
-        - main
-        - cicd
+          - release
+          - main
+          - cicd
 
 stages:
 - stage: Build
