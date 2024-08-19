@@ -5,9 +5,9 @@ pool:
 
 resources:
   pipelines:
-  - pipeline: aws-devops-ui-test
+  - pipeline: sample
     source: aws-devops-ui-test
-    trigger: 
+    trigger: true
       branches:
         include: 
         - release
