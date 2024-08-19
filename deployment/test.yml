@@ -1,0 +1,27 @@
+trigger:
+  branches:
+    include:
+      - main
+      - cicd
+      - release
+
+pr:
+  branches:
+    include:
+      - main
+      - release
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+- stage: Test
+  displayName: 'Test'
+  jobs:
+  - job: RunTests
+    displayName: 'Run Tests'
+    steps:
+    - script: |
+        echo "Running tests.."
+
+
